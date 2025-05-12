@@ -41,3 +41,32 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// Função para verificar se o elemento está visível na tela
+function checkVisibility() {
+  const elements = document.querySelectorAll('.fade-in');
+  const windowHeight = window.innerHeight;
+
+  elements.forEach((element, index) => {
+    const rect = element.getBoundingClientRect();
+
+    // Verifica se o elemento está dentro da área visível da tela
+    if (rect.top <= windowHeight * 0.9 && rect.bottom >= 0) {
+      // Aplique a classe 'visible' para animar a opacidade
+      setTimeout(() => {
+        element.classList.add('visible');
+      }, index * 100); // Delay baseado no índice do elemento, garantindo a ordem
+    } else {
+      // Remover a classe 'visible' se o elemento não estiver visível
+      element.classList.remove('visible');
+    }
+  });
+}
+
+// Chama a função quando o usuário rolar a página
+window.addEventListener('scroll', checkVisibility);
+
+// Chama a função ao carregar a página para já aplicar o efeito nos elementos visíveis
+window.addEventListener('load', function () {
+  document.body.classList.add('loaded');
+  checkVisibility(); // Chama a função para já aplicar a visibilidade no carregamento
+});
