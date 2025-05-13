@@ -70,3 +70,10 @@ window.addEventListener('load', function () {
   document.body.classList.add('loaded');
   checkVisibility(); // Chama a função para já aplicar a visibilidade no carregamento
 });
+
+const toggleBtn = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+toggleBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('open');
+});
