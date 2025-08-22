@@ -31,8 +31,7 @@ API de tarefas com rotas GET, POST, PUT e DELETE, feita com Flask. Possui fronte
 Caso tenha interesse em conversar ou colaborar em algum projeto, entre em contato:
 
 - 📧 Email: **pedrohc.forza@gmail.com**
-- 💼 LinkedIn: [Seu LinkedIn aqui]
-- 🌐 Portfólio online: [Seu site aqui]
+- 🌐 Portfólio online: 
 
 ---
 
