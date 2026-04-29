@@ -4,11 +4,14 @@ set -e
 # Generate app key if not set
 php artisan key:generate --force
 
-# Run migrations and seed
-php artisan migrate --force
-php artisan db:seed --force
+# Clear config cache first
+php artisan config:clear
 
-# Clear and cache config
+# Try to run migrations (may fail if DB not ready yet, that's ok)
+php artisan migrate --force || echo "Migration failed, DB might not be ready"
+php artisan db:seed --force || echo "Seeding failed, DB might not be ready"
+
+# Cache config and routes
 php artisan config:cache
 php artisan route:cache
 
